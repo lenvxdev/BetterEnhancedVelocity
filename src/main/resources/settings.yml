@@ -1,11 +1,14 @@
 default_language: "en_US"
+
 features:
   global_list:
-    command: globallist
+    enabled: true
+    command: glist
     aliases:
-      - glist
+      - globallist
       - list
       - players
+    max-servers: 9
     progress:
       count: 45
       complete: "|"
@@ -26,7 +29,41 @@ features:
       decoration:
         server: "<yellow>$server</yellow>"
         player: "<red>$player</red>"
+
   find:
+    enabled: true
     command: find
-    aliases: [ ]
-startup_commands: [ ]
+    aliases: []
+
+  send:
+    enabled: true
+    command: send
+    aliases: []
+
+  alert:
+    enabled: true
+    command: alert
+    aliases: []
+
+  broadcast:
+    enabled: true
+    command: broadcast
+    aliases:
+      - bc
+
+  ping:
+    enabled: true
+    command: ping
+    aliases: []
+
+  kickall:
+    enabled: true
+    command: kickall
+    aliases: []
+
+  move:
+    enabled: true
+    command: move
+    aliases: []
+
+startup_commands: []

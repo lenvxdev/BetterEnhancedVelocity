@@ -1,53 +1,59 @@
 plugins {
     `java-library`
-    `maven-publish`
-    kotlin("jvm") version "1.9.24"
-    kotlin("plugin.serialization") version "1.9.24"
+    kotlin("jvm") version "2.1.20"
     id("io.github.goooler.shadow") version "8.1.7"
 }
 
-group = "ir.syrent"
+group = "dev.lenvx"
 version = findProperty("version") as String
-val slug = "enhancedvelocity"
-description = "Customize your Velocity network experience"
+description = "Enhanced proxy management for Velocity"
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.9.24"))
     compileOnly("com.velocitypowered:velocity-api:3.3.0-SNAPSHOT")
     annotationProcessor("com.velocitypowered:velocity-api:3.3.0-SNAPSHOT")
 
     implementation("org.bstats:bstats-velocity:3.0.2")
     implementation("net.kyori:adventure-text-minimessage:4.17.0")
+    implementation("net.kyori:adventure-text-serializer-legacy:4.17.0")
     implementation("org.spongepowered:configurate-yaml:4.1.2")
-    implementation("commons-io:commons-io:2.16.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation(kotlin("stdlib-jdk8"))
+
+    testImplementation("com.velocitypowered:velocity-api:3.3.0-SNAPSHOT")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
+    testImplementation("io.mockk:mockk:1.13.12")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 java {
-    withSourcesJar()
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
+kotlin {
+    sourceSets {
+        main {
+            kotlin.srcDir("src/main/kotlin")
+        }
+    }
+}
 
 tasks {
+    test {
+        useJUnitPlatform()
+    }
+
     build {
         dependsOn(shadowJar)
     }
 
     processResources {
-        filesMatching("plugin.json") {
+        filesMatching("velocity-plugin.json") {
             expand(
                 "version" to project.version,
-                "slug" to slug,
-                "name" to "EnhancedVelocity",
                 "description" to project.description
             )
         }
@@ -57,8 +63,8 @@ tasks {
         archiveFileName.set("${findProperty("plugin-name") as String} v${project.version}.jar")
         archiveClassifier.set(null as String?)
 
-        relocate("org.bstats", "ir.syrent.enhancedvelocity.bstats")
-        relocate("org.spongepowered", "ir.syrent.spongepowered")
+        relocate("org.bstats", "dev.lenvx.betterenhancedvelocity.bstats")
+        relocate("org.spongepowered", "dev.lenvx.betterenhancedvelocity.spongepowered")
 
         minimize()
     }
@@ -69,43 +75,5 @@ tasks {
 
     withType<Jar> {
         destinationDirectory.set(file("$rootDir/bin/"))
-    }
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-            artifact(tasks["sourcesJar"])
-
-            pom {
-                name.set("EnhancedVelocity")
-                description.set(project.description)
-                url.set("https://github.com/syrent/enhancedvelocity")
-                developers {
-                    developer {
-                        id.set("syrent")
-                        name.set("Abbas")
-                        email.set("syrent2356@gmail.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:github.com/syrent/enhancedvelocity.git")
-                    developerConnection.set("scm:git:ssh://github.com/syrent/enhancedvelocity.git")
-                    url.set("https://github.com/syrent/enhancedvelocity/tree/master")
-                }
-            }
-        }
-    }
-
-    repositories {
-        maven {
-            name = "SayanDevelopment"
-            url = uri("https://repo.sayandev.org/snapshots/")
-            credentials {
-                username = System.getenv("REPO_SAYAN_USER") ?: findProperty("repo.sayan.user") as? String
-                password = System.getenv("REPO_SAYAN_TOKEN") ?: findProperty("repo.sayan.token") as? String
-            }
-        }
     }
 }

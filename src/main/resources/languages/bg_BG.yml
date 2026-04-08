@@ -1,0 +1,74 @@
+general:
+  raw_prefix: "[BetterEnhancedVelocity]"
+  prefix: "<gradient:dark_aqua:aqua>BetterEnhancedVelocity</gradient> <dark_gray>|</dark_gray>"
+  console_prefix: "<gray>[<gradient:dark_aqua:aqua>BEV</gradient>]</gray>"
+  successful_prefix: "<dark_gray>[</dark_gray><dark_green><bold>✔</bold></dark_green><dark_gray>]</dark_gray>"
+  warn_prefix: "<dark_gray>[</dark_gray><gold><bold>!</bold></gold><dark_gray>]</dark_gray>"
+  error_prefix: "<dark_gray>[</dark_gray><dark_red><bold>✘</bold></dark_red><dark_gray>]</dark_gray>"
+  only_players: "$error_prefix <red>Само играчи могат да използват тази команда."
+  player_not_found: "$error_prefix <red>Играчът не е намерен!"
+  server_not_found: "$error_prefix <red>Сървърът не е намерен!"
+  valid_parameters: "$error_prefix <red>Невалиден параметър. <dark_gray>($argument)"
+command:
+  no_permission: "$error_prefix <red>Нямаш право да използваш тази команда. <dark_gray>($permission)"
+features:
+  bev:
+    command:
+      reload_success: "$successful_prefix <green>Конфигът е презареден успешно."
+      usage: "$warn_prefix <gold>Използване: <yellow>/bev <gray>[reload|help]"
+  help:
+    command:
+      header: "<bold><gradient:dark_aqua:aqua><st>               </st></gradient></bold> <gradient:aqua:white><bold>Помощ за сървъра</bold></gradient> <bold><gradient:aqua:dark_aqua><st>               </st></gradient></bold>"
+      plugin_header: "<dark_aqua>◆ <aqua><bold>$plugin</bold></aqua>"
+      entry: "  <dark_gray>» <white>/$command <gray>— <dark_gray>$description"
+    descriptions:
+      glist: "Показва всички играчи във всички сървъри"
+      find: "Показва в кой сървър е играчът"
+      send: "Праща играч към сървър"
+      alert: "Изпраща съобщение с префикса на плъгина"
+      broadcast: "Изпраща MiniMessage съобщение до всички"
+      ping: "Проверява твоя или чужд ping"
+      kickall: "Изхвърля всички играчи от сървър или proxy"
+      move: "Премества играчи към друг сървър"
+      bev: "Презарежда конфигурацията или показва админ помощ"
+  global_list:
+    header: "<bold><gradient:gold:yellow><st>         </st></gradient></bold> <gradient:blue:aqua><bold>Играчите в мрежата</bold></gradient> <dark_gray>(<gray>$count</gray>)</dark_gray> <bold><gradient:yellow:gold><st>         </st></gradient></bold>"
+    no_one_playing: "<gray><italic>В момента няма играчи.</italic></gray>"
+    server: "<hover:show_text:'<aqua>Играчите:<newline><gray>$players</gray>'><gray>[<gradient:green:yellow:gold:red:dark_red>$progress</gradient><gray>] <dark_gray>(<gray>$count</gray>)</dark_gray> <white>» <aqua>$server"
+  find:
+    command:
+      usage: "$warn_prefix <gold>Използване: <yellow>/find <user>"
+      use: "$successful_prefix <green><gold>$player</gold> е в <gold>$server</gold>.$vanished"
+      vanished: " <dark_gray>(невидим)</dark_gray>"
+      no_target: "$error_prefix <red>Играчът не е намерен!"
+      no_server: "$warn_prefix <red>Не можа да се вземе сървърът на <aqua>$player</aqua>. Опитай пак по-късно."
+  send:
+    command:
+      usage: "$warn_prefix <gold>Използване: <yellow>/send <user> <server>"
+      use: "$successful_prefix <green><gold>$player</gold> е преместен в <gold>$server</gold>."
+  alert:
+    command:
+      usage: "$warn_prefix <gold>Използване: <yellow>/alert <message>"
+      use: "$prefix <white>$message"
+  broadcast:
+    command:
+      usage: "$warn_prefix <gold>Използване: <yellow>/broadcast <message>"
+      use: "$message"
+  ping:
+    command:
+      use: "$successful_prefix <green>Твоят ping: <aqua>$ping</aqua> ms."
+      no_target: "$error_prefix <red>Играчът не е намерен!"
+      use_target: "$successful_prefix <green>Ping на <gold>$player</gold>: <aqua>$ping</aqua> ms."
+  kickall:
+    command:
+      use: "$successful_prefix <green>Всички играчи са изхвърлени от <yellow>$server</yellow>."
+      usage: "$warn_prefix <gold>Използване: <yellow>/kickall <server|all>"
+      no_server: "$error_prefix <red>Сървърът не е намерен!"
+      reason: "<red>Беше изхвърлен от администратор."
+  move:
+    command:
+      usage: "$warn_prefix <gold>Използване: <yellow>/move <player|server:<server>|all> <destination>"
+      success: "$successful_prefix <green>Преместени <gold>$count</gold> играчи в <gold>$destination</gold>."
+      no_players_found: "$error_prefix <red>Няма намерени играчи по този избор."
+      already_on_server: "$warn_prefix <gold>$count</gold> играчи вече са в <gold>$server</gold>."
+      failed: "$error_prefix <red>Неуспешно преместване на <gold>$count</gold> играчи."

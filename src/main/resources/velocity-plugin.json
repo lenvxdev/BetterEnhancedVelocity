@@ -1,12 +1,12 @@
 {
-  "id": "enhancedvelocity",
-  "name": "EnhancedVelocity",
-  "version": "1.3.1",
-  "description": "Customized Velocity experience",
-  "url": "syrent.ir",
+  "id": "betterenhancedvelocity",
+  "name": "BetterEnhancedVelocity",
+  "version": "${version}",
+  "description": "${description}",
+  "url": "https://github.com/lenvxdev/BetterEnhancedVelocity",
   "authors": [
-    "Syrent"
+    "lenvx"
   ],
   "dependencies": [],
-  "main": "ir.syrent.enhancedvelocity.EnhancedVelocity"
+  "main": "dev.lenvx.betterenhancedvelocity.BetterEnhancedVelocity"
 }

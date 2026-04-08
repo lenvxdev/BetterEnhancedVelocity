@@ -1,0 +1,74 @@
+general:
+  raw_prefix: "[BetterEnhancedVelocity]"
+  prefix: "<gradient:dark_aqua:aqua>BetterEnhancedVelocity</gradient> <dark_gray>|</dark_gray>"
+  console_prefix: "<gray>[<gradient:dark_aqua:aqua>BEV</gradient>]</gray>"
+  successful_prefix: "<dark_gray>[</dark_gray><dark_green><bold>✔</bold></dark_green><dark_gray>]</dark_gray>"
+  warn_prefix: "<dark_gray>[</dark_gray><gold><bold>!</bold></gold><dark_gray>]</dark_gray>"
+  error_prefix: "<dark_gray>[</dark_gray><dark_red><bold>✘</bold></dark_red><dark_gray>]</dark_gray>"
+  only_players: "$error_prefix <red>Šią komandą gali naudoti tik žaidėjai."
+  player_not_found: "$error_prefix <red>Žaidėjas nerastas!"
+  server_not_found: "$error_prefix <red>Serveris nerastas!"
+  valid_parameters: "$error_prefix <red>Neteisingas parametras. <dark_gray>($argument)"
+command:
+  no_permission: "$error_prefix <red>Neturi leidimo naudoti šios komandos. <dark_gray>($permission)"
+features:
+  bev:
+    command:
+      reload_success: "$successful_prefix <green>Konfigas sėkmingai perkrautas."
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/bev <gray>[reload|help]"
+  help:
+    command:
+      header: "<bold><gradient:dark_aqua:aqua><st>               </st></gradient></bold> <gradient:aqua:white><bold>Serverio pagalba</bold></gradient> <bold><gradient:aqua:dark_aqua><st>               </st></gradient></bold>"
+      plugin_header: "<dark_aqua>◆ <aqua><bold>$plugin</bold></aqua>"
+      entry: "  <dark_gray>» <white>/$command <gray>— <dark_gray>$description"
+    descriptions:
+      glist: "Parodo visus žaidėjus per visus serverius"
+      find: "Parodo, kuriame serveryje yra žaidėjas"
+      send: "Perkelia žaidėją į serverį"
+      alert: "Išsiunčia pranešimą su plugin prefiksu"
+      broadcast: "Išsiunčia MiniMessage pranešimą visiems"
+      ping: "Patikrina tavo arba kito žaidėjo pingą"
+      kickall: "Išmeta visus žaidėjus iš serverio arba proxy"
+      move: "Perkelia žaidėjus į kitą serverį"
+      bev: "Perkrauna configą arba rodo admin pagalbą"
+  global_list:
+    header: "<bold><gradient:gold:yellow><st>         </st></gradient></bold> <gradient:blue:aqua><bold>Tinklo žaidėjai</bold></gradient> <dark_gray>(<gray>$count</gray>)</dark_gray> <bold><gradient:yellow:gold><st>         </st></gradient></bold>"
+    no_one_playing: "<gray><italic>Šiuo metu niekas nežaidžia.</italic></gray>"
+    server: "<hover:show_text:'<aqua>Žaidėjai:<newline><gray>$players</gray>'><gray>[<gradient:green:yellow:gold:red:dark_red>$progress</gradient><gray>] <dark_gray>(<gray>$count</gray>)</dark_gray> <white>» <aqua>$server"
+  find:
+    command:
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/find <user>"
+      use: "$successful_prefix <green><gold>$player</gold> yra <gold>$server</gold>.$vanished"
+      vanished: " <dark_gray>(nematomas)</dark_gray>"
+      no_target: "$error_prefix <red>Žaidėjas nerastas!"
+      no_server: "$warn_prefix <red>Nepavyko gauti <aqua>$player</aqua> serverio. Bandyk vėliau."
+  send:
+    command:
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/send <user> <server>"
+      use: "$successful_prefix <green><gold>$player</gold> perkeltas į <gold>$server</gold>."
+  alert:
+    command:
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/alert <message>"
+      use: "$prefix <white>$message"
+  broadcast:
+    command:
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/broadcast <message>"
+      use: "$message"
+  ping:
+    command:
+      use: "$successful_prefix <green>Tavo pingas: <aqua>$ping</aqua> ms."
+      no_target: "$error_prefix <red>Žaidėjas nerastas!"
+      use_target: "$successful_prefix <green><gold>$player</gold> pingas: <aqua>$ping</aqua> ms."
+  kickall:
+    command:
+      use: "$successful_prefix <green>Išmesti visi žaidėjai iš <yellow>$server</yellow>."
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/kickall <server|all>"
+      no_server: "$error_prefix <red>Serveris nerastas!"
+      reason: "<red>Tave išmetė administratorius."
+  move:
+    command:
+      usage: "$warn_prefix <gold>Naudojimas: <yellow>/move <player|server:<server>|all> <destination>"
+      success: "$successful_prefix <green>Perkelta <gold>$count</gold> žaidėjų į <gold>$destination</gold>."
+      no_players_found: "$error_prefix <red>Nerasta žaidėjų pagal šį pasirinkimą."
+      already_on_server: "$warn_prefix <gold>$count</gold> žaidėjai jau buvo <gold>$server</gold>."
+      failed: "$error_prefix <red>Nepavyko perkelti <gold>$count</gold> žaidėjų."

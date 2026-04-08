@@ -1,0 +1,74 @@
+general:
+  raw_prefix: "[BetterEnhancedVelocity]"
+  prefix: "<gradient:dark_aqua:aqua>BetterEnhancedVelocity</gradient> <dark_gray>|</dark_gray>"
+  console_prefix: "<gray>[<gradient:dark_aqua:aqua>BEV</gradient>]</gray>"
+  successful_prefix: "<dark_gray>[</dark_gray><dark_green><bold>✔</bold></dark_green><dark_gray>]</dark_gray>"
+  warn_prefix: "<dark_gray>[</dark_gray><gold><bold>!</bold></gold><dark_gray>]</dark_gray>"
+  error_prefix: "<dark_gray>[</dark_gray><dark_red><bold>✘</bold></dark_red><dark_gray>]</dark_gray>"
+  only_players: "$error_prefix <red>Šo komandu var izmantot tikai spēlētāji."
+  player_not_found: "$error_prefix <red>Spēlētājs netika atrasts!"
+  server_not_found: "$error_prefix <red>Serveris netika atrasts!"
+  valid_parameters: "$error_prefix <red>Nederīgs parametrs. <dark_gray>($argument)"
+command:
+  no_permission: "$error_prefix <red>Tev nav atļaujas izmantot šo komandu. <dark_gray>($permission)"
+features:
+  bev:
+    command:
+      reload_success: "$successful_prefix <green>Konfigs veiksmīgi pārlādēts."
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/bev <gray>[reload|help]"
+  help:
+    command:
+      header: "<bold><gradient:dark_aqua:aqua><st>               </st></gradient></bold> <gradient:aqua:white><bold>Servera palīdzība</bold></gradient> <bold><gradient:aqua:dark_aqua><st>               </st></gradient></bold>"
+      plugin_header: "<dark_aqua>◆ <aqua><bold>$plugin</bold></aqua>"
+      entry: "  <dark_gray>» <white>/$command <gray>— <dark_gray>$description"
+    descriptions:
+      glist: "Parāda visus spēlētājus visos serveros"
+      find: "Parāda, kurā serverī ir spēlētājs"
+      send: "Pārvieto spēlētāju uz serveri"
+      alert: "Nosūta ziņojumu ar plugina prefiksu"
+      broadcast: "Nosūta MiniMessage ziņojumu visiem"
+      ping: "Pārbauda tavu vai cita spēlētāja pingu"
+      kickall: "Izmet visus spēlētājus no servera vai proxy"
+      move: "Pārvieto spēlētājus uz citu serveri"
+      bev: "Pārlādē configu vai rāda admin palīdzību"
+  global_list:
+    header: "<bold><gradient:gold:yellow><st>         </st></gradient></bold> <gradient:blue:aqua><bold>Tīkla spēlētāji</bold></gradient> <dark_gray>(<gray>$count</gray>)</dark_gray> <bold><gradient:yellow:gold><st>         </st></gradient></bold>"
+    no_one_playing: "<gray><italic>Šobrīd neviens nespēlē.</italic></gray>"
+    server: "<hover:show_text:'<aqua>Spēlētāji:<newline><gray>$players</gray>'><gray>[<gradient:green:yellow:gold:red:dark_red>$progress</gradient><gray>] <dark_gray>(<gray>$count</gray>)</dark_gray> <white>» <aqua>$server"
+  find:
+    command:
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/find <user>"
+      use: "$successful_prefix <green><gold>$player</gold> ir serverī <gold>$server</gold>.$vanished"
+      vanished: " <dark_gray>(neredzams)</dark_gray>"
+      no_target: "$error_prefix <red>Spēlētājs netika atrasts!"
+      no_server: "$warn_prefix <red>Neizdevās iegūt <aqua>$player</aqua> serveri. Mēģini vēlāk."
+  send:
+    command:
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/send <user> <server>"
+      use: "$successful_prefix <green><gold>$player</gold> pārvietots uz <gold>$server</gold>."
+  alert:
+    command:
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/alert <message>"
+      use: "$prefix <white>$message"
+  broadcast:
+    command:
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/broadcast <message>"
+      use: "$message"
+  ping:
+    command:
+      use: "$successful_prefix <green>Tavs pings: <aqua>$ping</aqua> ms."
+      no_target: "$error_prefix <red>Spēlētājs netika atrasts!"
+      use_target: "$successful_prefix <green><gold>$player</gold> pings: <aqua>$ping</aqua> ms."
+  kickall:
+    command:
+      use: "$successful_prefix <green>Visi spēlētāji izmesti no <yellow>$server</yellow>."
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/kickall <server|all>"
+      no_server: "$error_prefix <red>Serveris netika atrasts!"
+      reason: "<red>Tevi izmeta administrators."
+  move:
+    command:
+      usage: "$warn_prefix <gold>Lietošana: <yellow>/move <player|server:<server>|all> <destination>"
+      success: "$successful_prefix <green>Pārvietoti <gold>$count</gold> spēlētāji uz <gold>$destination</gold>."
+      no_players_found: "$error_prefix <red>Netika atrasti spēlētāji pēc šīs izvēles."
+      already_on_server: "$warn_prefix <gold>$count</gold> spēlētāji jau bija <gold>$server</gold>."
+      failed: "$error_prefix <red>Neizdevās pārvietot <gold>$count</gold> spēlētājus."

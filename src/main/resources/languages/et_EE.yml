@@ -1,0 +1,74 @@
+general:
+  raw_prefix: "[BetterEnhancedVelocity]"
+  prefix: "<gradient:dark_aqua:aqua>BetterEnhancedVelocity</gradient> <dark_gray>|</dark_gray>"
+  console_prefix: "<gray>[<gradient:dark_aqua:aqua>BEV</gradient>]</gray>"
+  successful_prefix: "<dark_gray>[</dark_gray><dark_green><bold>✔</bold></dark_green><dark_gray>]</dark_gray>"
+  warn_prefix: "<dark_gray>[</dark_gray><gold><bold>!</bold></gold><dark_gray>]</dark_gray>"
+  error_prefix: "<dark_gray>[</dark_gray><dark_red><bold>✘</bold></dark_red><dark_gray>]</dark_gray>"
+  only_players: "$error_prefix <red>Seda käsku saavad kasutada ainult mängijad."
+  player_not_found: "$error_prefix <red>Mängijat ei leitud!"
+  server_not_found: "$error_prefix <red>Serverit ei leitud!"
+  valid_parameters: "$error_prefix <red>Vale parameeter. <dark_gray>($argument)"
+command:
+  no_permission: "$error_prefix <red>Sul puudub õigus seda käsku kasutada. <dark_gray>($permission)"
+features:
+  bev:
+    command:
+      reload_success: "$successful_prefix <green>Config edukalt uuesti laetud."
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/bev <gray>[reload|help]"
+  help:
+    command:
+      header: "<bold><gradient:dark_aqua:aqua><st>               </st></gradient></bold> <gradient:aqua:white><bold>Serveri abi</bold></gradient> <bold><gradient:aqua:dark_aqua><st>               </st></gradient></bold>"
+      plugin_header: "<dark_aqua>◆ <aqua><bold>$plugin</bold></aqua>"
+      entry: "  <dark_gray>» <white>/$command <gray>— <dark_gray>$description"
+    descriptions:
+      glist: "Näitab kõiki mängijaid kõigis serverites"
+      find: "Näitab, millises serveris mängija on"
+      send: "Saadab mängija teise serverisse"
+      alert: "Saadab teate plugina prefiksiga"
+      broadcast: "Saadab MiniMessage teate kõigile"
+      ping: "Kontrollib sinu või teise mängija pingi"
+      kickall: "Vis kab kõik mängijad serverist või proxy'st välja"
+      move: "Liigutab mängijad teise serverisse"
+      bev: "Laeb configi uuesti või näitab admin abi"
+  global_list:
+    header: "<bold><gradient:gold:yellow><st>         </st></gradient></bold> <gradient:blue:aqua><bold>Võrgu mängijad</bold></gradient> <dark_gray>(<gray>$count</gray>)</dark_gray> <bold><gradient:yellow:gold><st>         </st></gradient></bold>"
+    no_one_playing: "<gray><italic>Hetkel ei mängi keegi.</italic></gray>"
+    server: "<hover:show_text:'<aqua>Mängijad:<newline><gray>$players</gray>'><gray>[<gradient:green:yellow:gold:red:dark_red>$progress</gradient><gray>] <dark_gray>(<gray>$count</gray>)</dark_gray> <white>» <aqua>$server"
+  find:
+    command:
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/find <user>"
+      use: "$successful_prefix <green><gold>$player</gold> on serveris <gold>$server</gold>.$vanished"
+      vanished: " <dark_gray>(peidus)</dark_gray>"
+      no_target: "$error_prefix <red>Mängijat ei leitud!"
+      no_server: "$warn_prefix <red>Ei saanud <aqua>$player</aqua> serverit kätte. Proovi hiljem."
+  send:
+    command:
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/send <user> <server>"
+      use: "$successful_prefix <green><gold>$player</gold> saadeti serverisse <gold>$server</gold>."
+  alert:
+    command:
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/alert <message>"
+      use: "$prefix <white>$message"
+  broadcast:
+    command:
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/broadcast <message>"
+      use: "$message"
+  ping:
+    command:
+      use: "$successful_prefix <green>Sinu ping: <aqua>$ping</aqua> ms."
+      no_target: "$error_prefix <red>Mängijat ei leitud!"
+      use_target: "$successful_prefix <green><gold>$player</gold> ping: <aqua>$ping</aqua> ms."
+  kickall:
+    command:
+      use: "$successful_prefix <green>Kõik mängijad visati serverist <yellow>$server</yellow> välja."
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/kickall <server|all>"
+      no_server: "$error_prefix <red>Serverit ei leitud!"
+      reason: "<red>Sind visati administraatori poolt välja."
+  move:
+    command:
+      usage: "$warn_prefix <gold>Kasutus: <yellow>/move <player|server:<server>|all> <destination>"
+      success: "$successful_prefix <green>Liigutati <gold>$count</gold> mängijat serverisse <gold>$destination</gold>."
+      no_players_found: "$error_prefix <red>Valikule vastavaid mängijaid ei leitud."
+      already_on_server: "$warn_prefix <gold>$count</gold> mängijat olid juba serveris <gold>$server</gold>."
+      failed: "$error_prefix <red><gold>$count</gold> mängija liigutamine ebaõnnestus."
