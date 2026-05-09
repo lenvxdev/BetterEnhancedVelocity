@@ -2,6 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/lenvxdev/BetterEnhancedVelocity?style=flat-square&color=4C9BE8)](https://github.com/lenvxdev/BetterEnhancedVelocity/releases)
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/betterenchantedvelocity?style=flat-square&color=00AF5C&logo=modrinth)](https://modrinth.com/plugin/betterenchantedvelocity)
+[![Build](https://img.shields.io/github/actions/workflow/status/lenvxdev/BetterEnhancedVelocity/build.yml?style=flat-square&label=build)](https://github.com/lenvxdev/BetterEnhancedVelocity/actions/workflows/build.yml)
 [![License](https://img.shields.io/github/license/lenvxdev/BetterEnhancedVelocity?style=flat-square&color=red)](LICENSE)
 [![Velocity](https://img.shields.io/badge/Velocity-3.x-blue?style=flat-square)](https://velocitypowered.com)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1-7F52FF?style=flat-square&logo=kotlin)](https://kotlinlang.org)
